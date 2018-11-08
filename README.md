@@ -40,8 +40,8 @@ Note that the course will also cost R150 per day. Note that the days build on ea
 ### What will you learn?
 We will cover the tools you need to work with data in python to create plots like this (and many more):
 
-<img src="cartopy_map.png" style="width:33%; float:left">
-<img src="matplotlib_linreg_2Dhist.png" style="width:66%; float:left">
+<img src="cartopy_map.png" style="width:33%; height:200px; float:left">
+<img src="matplotlib_linreg_2Dhist.png" style="width:66%; height:200px; float:left">
 
 However, you will not walk away as ninja. This takes time and practice. The course serves as a crash course to working with and plotting data. We will go over example problems, but it will help if you come with your own data so you can learn on the fly.
 
