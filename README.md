@@ -61,7 +61,6 @@ Core Python recap, `numpy` and `matplotlib`
 - time series resampling
 - plotting recap with pandas
 - linear regression with `sklearn`
-- groupby (for the advanced)
 
 #### DAY 3 (xarray)
 `xarray` is a netCDF tool and probably saved me four months in my PhD

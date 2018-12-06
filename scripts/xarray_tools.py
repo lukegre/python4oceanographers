@@ -35,10 +35,10 @@ class CartopyMap(object):
     def __init__(self, xarray_obj):
         self._obj = xarray_obj
 
-    def __call__(self, ax=None, proj=None, round=True, default_features=True, **kwargs):
-        return self._cartopy(ax=ax, proj=proj, round=round, default_features=default_features, **kwargs)
+    def __call__(self, ax=None, proj=None, round=True, default_features=True, res='110m', **kwargs):
+        return self._cartopy(ax=ax, proj=proj, round=round, default_features=default_features, res=res, **kwargs)
 
-    def _cartopy(self, ax=None, proj=None, round=True, default_features=True, **kwargs):
+    def _cartopy(self, ax=None, proj=None, round=True, res='110m', default_features=True, **kwargs):
         import matplotlib.path as mpath
         import matplotlib.pyplot as plt
         from cartopy import feature
@@ -69,7 +69,7 @@ class CartopyMap(object):
 
         if default_features:
             ax.add_feature(feature.LAND, color='#CCCCCC', zorder=4)
-            ax.add_feature(feature.COASTLINE, lw=0.5, zorder=4)
+            ax.coastlines(resolution=res, lw=0.5, zorder=4)
 
         if 'robust' not in kwargs:
             kwargs['robust'] = True
@@ -77,6 +77,12 @@ class CartopyMap(object):
             kwargs['cbar_kwargs'] = {'pad': 0.02}
 
         axm = xda.plot(ax=ax, transform=crs.PlateCarree(), **kwargs)
+        if not (isinstance(proj, stereo_maps) & round):
+            lat = xda.dims[0]
+            lon = xda.dims[1]
+            ax.set_xbound(xda[lon].min().values, xda[lon].max().values)
+            ax.set_ybound(xda[lat].min().values, xda[lat].max().values)
+
         if kwargs.get('add_colorbar', True):
             ax.colorbar = axm.colorbar
         if tighten:
