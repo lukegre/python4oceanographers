@@ -6,3 +6,7 @@ notebooks/\.DS_Store
 data/\.DS_Store
 
 \.DS_Store
+
+scripts/__init__\.py
+
+scripts/__pycache__/

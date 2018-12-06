@@ -1,0 +1,5 @@
+ERRORS
+Hart driver took more than one iteration
+No response from Hart after 3 attempts
+GO board driver took more than one iteration.
+FAULTS
