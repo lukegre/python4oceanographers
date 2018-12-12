@@ -10,3 +10,5 @@ data/\.DS_Store
 scripts/__init__\.py
 
 scripts/__pycache__/
+
+notebooks/working/\.ipynb_checkpoints/
